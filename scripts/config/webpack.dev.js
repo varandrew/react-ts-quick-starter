@@ -2,7 +2,7 @@
  * @Author: Varandrew
  * @Date: 2020-08-18 16:28:55
  * @LastEditors: Varandrew
- * @LastEditTime: 2020-08-19 10:54:51
+ * @LastEditTime: 2020-08-19 14:47:05
  * @Description: file content
  */
 /* eslint-disable @typescript-eslint/no-var-requires */
@@ -11,6 +11,7 @@ const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common.js')
 const { SERVER_HOST, SERVER_PORT } = require('../constant')
+const proxySetting = require('../../src/settings/set-proxy.js')
 
 module.exports = merge(common, {
   mode: 'development',
@@ -23,6 +24,7 @@ module.exports = merge(common, {
     compress: true, // 是否启用 gzip 压缩
     open: true, // 打开默认浏览器
     hot: true, // 热更新
+    proxy: { ...proxySetting },
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
 })
