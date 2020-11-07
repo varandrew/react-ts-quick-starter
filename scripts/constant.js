@@ -1,10 +1,3 @@
-/*
- * @Author: Varandrew
- * @Date: 2020-08-18 16:24:37
- * @LastEditors: Varandrew
- * @LastEditTime: 2020-08-19 14:49:48
- * @Description: file content
- */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path')
 

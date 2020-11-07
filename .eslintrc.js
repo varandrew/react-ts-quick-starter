@@ -94,6 +94,7 @@ module.exports = {
     'react/destructuring-assignment': OFF,
     'react/state-in-constructor': OFF,
     'react/jsx-props-no-spreading': OFF,
+    'react/prop-types': [2, { ignore: ['children'] }],
 
     'lines-between-class-members': [ERROR, 'always'],
     indent: [ERROR, 2, { SwitchCase: 1 }],

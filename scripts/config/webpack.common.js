@@ -1,14 +1,17 @@
 /* eslint-disable global-require */
 /* eslint-disable @typescript-eslint/no-var-requires */
+
 const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const WebpackBar = require('webpackbar')
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+
 const { isDev, PROJECT_PATH, IS_OPEN_HARD_SOURCE } = require('../constant')
 
 const getCssLoaders = (importLoaders) => [
@@ -123,6 +126,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new AntdDayjsWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: resolve(PROJECT_PATH, './public/index.html'),
       filename: 'index.html',

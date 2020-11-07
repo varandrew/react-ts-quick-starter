@@ -1,6 +1,2 @@
-#root {
-  display: flex;
-  align-items: center;
-  color: #fff;
-  background-color: lightcoral;
-}
+@import './common/styles/index';
+@import '~antd/dist/antd.css';

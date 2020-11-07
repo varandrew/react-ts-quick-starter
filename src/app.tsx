@@ -15,25 +15,31 @@
  *  └─────┴────┴────┴───────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘
  */
 
-import React, { Suspense, useState } from 'react'
+import React, { useState } from 'react'
+import { ConfigProvider, DatePicker, message } from 'antd'
+import dayjs from 'dayjs'
+import zhCN from 'antd/lib/locale/zh_CN'
+
+import 'dayjs/locale/zh-cn'
 import './app.scss'
 
-const ComputedOne = React.lazy(() => import('@/components/ComputedOne'))
-const ComputedTwo = React.lazy(() => import('@/components/ComputedTwo'))
+dayjs.locale('zh-cn')
 
-function App() {
-  const [showTwo, setShowTwo] = useState<boolean>(false)
+const App: React.FC = () => {
+  const [date, setDate] = useState(dayjs())
+
+  const handleChange = (value: any) => {
+    message.info(`您选择的日期是: ${value ? value.format('YYYY年MM月DD日') : '未选择'}`)
+    setDate(value)
+  }
 
   return (
-    <div className='app'>
-      <Suspense fallback={<div>Loading...</div>}>
-        <ComputedOne a={1} b={2} />
-        {showTwo && <ComputedTwo a={3} b={4} />}
-        <button type='button' onClick={() => setShowTwo(true)}>
-          显示Two啊啊啊
-        </button>
-      </Suspense>
-    </div>
+    <ConfigProvider locale={zhCN}>
+      <div style={{ width: 400, margin: '100px auto' }}>
+        <DatePicker onChange={handleChange} />
+        <div style={{ marginTop: 16 }}>当前日期：{date ? date.format('YYYY年MM月DD日') : '未选择'}</div>
+      </div>
+    </ConfigProvider>
   )
 }
 
