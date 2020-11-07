@@ -28,7 +28,7 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: 'module',
   },
-  plugins: ['react', 'unicorn', 'promise', '@typescript-eslint'],
+  plugins: ['react', 'unicorn', 'promise', '@typescript-eslint', 'import'],
   settings: {
     'import/resolver': {
       node: {

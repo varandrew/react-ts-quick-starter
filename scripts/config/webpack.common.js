@@ -57,6 +57,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js', '.json'],
     alias: {
       '@/src': resolve(PROJECT_PATH, './src'),
+      '@/pages': resolve(PROJECT_PATH, './src/pages'),
       '@/common': resolve(PROJECT_PATH, './src/common'),
       '@/components': resolve(PROJECT_PATH, './src/components'),
       '@/utils': resolve(PROJECT_PATH, './src/utils'),
